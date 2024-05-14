@@ -9,8 +9,6 @@ ENV INTERNAL_IP=127.0.0.1
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
-# Copy the requirements.txt file into the build context.
-# COPY config/requirements.txt /requirements.txt
 
 # Download acestream
 RUN mkdir -p /opt/acestream && \
