@@ -55,3 +55,13 @@ donde \[numero] es el numero de contenedor, en este caso, podria ser 1, 2, 3, 4,
 
 O a través de la interfaz web: `http://localhost:[puerto]/webui/api/service?method=get_version`
 donde \[puerto] es el puerto que usa cada contenedor, en este caso, podría ser 6878, 6879, 6880, 6881, 6882 o 6883
+
+
+## Ejecutar el contenedores tvheadend
+
+Para iniciar el contenedor tvheadend:
+
+```bash
+docker run -d   --name=tvheadend   -e PUID=1000   -e PGID=1000   -e TZ=Europe/Madrid  -p 9981:9981   -p 9982:9982 -v /usr/bin/tv_grab_EPG_dobleM:/usr/bin/tv_grab_EPG_dobleM  -v /home/user/tvheadend/data:/config   -v /home/user/tvheadend/grabaciones:/recordings   --restart unless-stopped   lscr.io/linuxserver/tvheadend:latest
+```
+
