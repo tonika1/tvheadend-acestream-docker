@@ -51,5 +51,7 @@ Verifica el estado de salud:
 ```bash
 docker inspect --format='{{json .State.Health}}' docker-acestream[numero]
 ```
+donde numero es el numero de contenedor, en este caso, podria ser 1, 2, 3, 4, 5 o 6
 
 O a través de la interfaz web: `http://localhost:[puerto]/webui/api/service?method=get_version`
+donde puerto es el puerto que usa cada contenedor, en este caso, podría ser 6878, 6879, 6880, 6881, 6882 o 6883
