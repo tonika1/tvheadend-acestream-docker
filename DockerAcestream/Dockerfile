@@ -10,14 +10,7 @@ ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
 
-# Download acestream
-RUN mkdir -p /opt/acestream && \
-    wget --no-verbose --output-document acestream.tgz "${ACESTREAM_VERSION}" && \
-    echo "${ACESTREAM_SHA256} acestream.tgz" | sha256sum --check && \
-    tar --extract --gzip --directory /opt/acestream --file acestream.tgz && \
-    rm acestream.tgz
-
-# Install system packages and clean up in a single layer to keep the size to a minimum.
+# Download acestream nad install packages
 RUN set -ex && \
     apt-get update && \
     apt-get install -yq --no-install-recommends \
@@ -31,6 +24,14 @@ RUN set -ex && \
         build-essential \
         libxml2-dev \
         libxslt1-dev && \
+    mkdir -p /opt/acestream && \
+    wget --no-verbose --output-document acestream.tgz "${ACESTREAM_VERSION}" && \
+    echo "${ACESTREAM_SHA256} acestream.tgz" | sha256sum --check && \
+    tar --extract --gzip --directory /opt/acestream --file acestream.tgz && \
+    rm acestream.tgz
+
+# Install system packages and clean up in a single layer to keep the size to a minimum.
+RUN set -ex && \
     wget https://bootstrap.pypa.io/get-pip.py && \
     python3.10 get-pip.py && \
     pip install --no-cache-dir -r /opt/acestream/requirements.txt && \
@@ -39,13 +40,6 @@ RUN set -ex && \
     rm get-pip.py && \
     /opt/acestream/start-engine --version
 
-# Install Acestream.
-RUN mkdir -p /opt/acestream && \
-    wget --no-verbose --output-document acestream.tgz "${ACESTREAM_VERSION}" && \
-    echo "${ACESTREAM_SHA256} acestream.tgz" | sha256sum --check && \
-    tar --extract --gzip --directory /opt/acestream --file acestream.tgz && \
-    rm acestream.tgz && \
-    /opt/acestream/start-engine --version
 
 
 # Copy Acestream configuration.
