@@ -65,3 +65,48 @@ Para iniciar el contenedor tvheadend:
 docker run -d   --name=tvheadend   -e PUID=1000   -e PGID=1000   -e TZ=Europe/Madrid  -p 9981:9981   -p 9982:9982 -v /usr/bin/tv_grab_EPG_dobleM:/usr/bin/tv_grab_EPG_dobleM  -v /home/user/tvheadend/data:/config   -v /home/user/tvheadend/grabaciones:/recordings   --restart unless-stopped   lscr.io/linuxserver/tvheadend:latest
 ```
 
+## Crear fichero m3u
+
+La primera fila siempre contiene #EXTM3U para identificar este archivo como una lista m3u de reproducción y opcionalmente se le puede añadir la guia que se va usar mediante url-tvg:
+
+```bash
+#EXTM3U url-tvg="https://urlguia/guiaiptv.xml"
+```
+Las filas restantes contienen dos filas distintas por canal, la primera: 
+a) Comienza con #EXTINF:que define las propiedades de un mux
+
+```bash
+#EXTINF:-1 group-title="grupo" tvg-id="Nombre del canal" tvg-name="Nombre del canal",Nombre del canal
+```
+b) otro inmediatamente debajo de él que contiene la dirección del canal con la IP del servidor acestream (no puede ser 127.0.0.1) y el id del stream: 
+
+```bash
+pipe:///usr/bin/curl -s -L -N --output - http://XXX.XXX.XX.XXX:6879/ace/getstream?id=e6f06d697f66a8fa606c4d61236c24b0d604dabc
+```
+
+Por ejemplo, si tenemos nuestro servidor acestream en la ip 192.168.10.100 en el puerto 6878:
+
+```bash
+#EXTINF:-1 group-title="infantil" tvg-id="Canal infantil" tvg-name="Canal infantil",Canal infantil
+pipe:///usr/bin/curl -s -L -N --output - http://192.168.10.100:6878/ace/getstream?id=e6f06d697f66a8fa606c4d61236c24b0d604dabc
+#EXTINF:-1 group-title="SERIES" tvg-id="Canal de series" tvg-name="Canal de series",Canal de series
+pipe:///usr/bin/curl -s -L -N --output - http://192.168.10.100:6878/ace/getstream?id=e6f06d697f66a8fa606c4d61236c24b0d604d000
+```
+
+```bash
+#EXTINF:-1 group-title="grupo" tvg-id="Nombre del canal" tvg-name="Nombre del canal",Nombre del canal
+```
+
+Tres opciones (parece que es mejor la primera)
+
+```bash
+pipe:///usr/bin/curl -s -L -N --output - http://XXX.XXX.XX.XXX:6879/ace/getstream?id=e6f06d697f66a8fa606c4d61236c24b0d604dabc
+```
+
+```bash
+pipe:///usr/bin/curl -s -L -N --output - http://XXX.XXX.XX.XXX:6879/ace/getstream?id=e6f06d697f66a8fa606c4d61236c24b0d604dabc pipe:1
+```
+
+```bash
+pipe:///usr/bin/ffmpeg -loglevel fatal -fflags +genpts -i http://XXX.XXX.XX.XXX:6879/ace/getstream?id=e6f06d697f66a8fa606c4d61236c24b0d604dabc -vcodec copy -acodec copy -metadata service_provider=e6f06d697f66a8fa606c4d61236c24b0d604dabcv1 -metadata service_name=e6f06d697f66a8fa606c4d61236c24b0d604dabcENTRANCEv1 -f mpegts -tune zerolatency pipe:1
+```
