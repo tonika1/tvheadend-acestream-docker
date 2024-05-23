@@ -184,6 +184,25 @@ En Internal Grabber Settings yo he puesto que las guias se refresquen todos los 
 0 17 * * *
 0 21 * * *
 ```
+Guardamos y pulsamos sobre estas dos opciones:
+
+![Captura de pantalla_2024-05-23_18-53-20](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/e1607482-b33a-4a1a-91c4-9bb7964403bf)
+
+### Modificamos el EPGs grabber Channels
+
+Vamos a la esquina inferior derecha y celecionamos all:
+
+![Captura de pantalla_2024-05-23_18-56-04](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/b497ce61-c475-4141-a1d4-2e7debf32756)
+
+Seleccionamos todas las lineas:
+
+![Captura de pantalla_2024-05-23_18-57-10](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/b6b9014d-323c-4154-b05f-0668720c5d99)
+
+
+y pulsamos sobre edit y modifiamos las opciones Once per auto channel y Channel update options:
+
+![Captura de pantalla_2024-05-23_18-59-02](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/bab2d49a-a20d-4daf-a0ff-2171c057d0dc)
+
 
 ### Modificamos las opciones generales
 
@@ -220,3 +239,56 @@ Creamos el Bouquet con name "Tvheadend Network" (creo que es importante ponerle 
 
 ![Captura de pantalla_2024-05-23_18-42-56](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/617df3b9-26ba-4a77-a281-2dbebaa7b807)
 
+### Hacemos un force scan de las redes
+
+Vamos a las networs lkas seleccionamos todas y hacemos un force scan, debería aparecer en muxes el número de canales que tenemos en nuestro fichero, en mi caso 76.
+
+![Captura de pantalla_2024-05-23_18-46-27](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/b6a3cbf7-002e-4c1b-9680-bab0758c208a)
+
+### Comprobamos nos ha agregado los canales 
+
+Vamos a Channeles y comprobamos que tenemos nuestros canales.
+
+![Captura de pantalla_2024-05-23_19-02-55](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/a44438bc-34d6-417b-a555-3d49a56acacc)
+
+Los canales no deben estar repetidos, es decir, aunque tengamos 6 ficheros con el canal A debe apareces aqui solo un canal A.
+
+También es importante ver si nos ha mapeado el "User icon" con la guia, debería empezar por "https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/..."
+
+### Comprobamos que en status no está escaneado
+
+Nos vamos a status, esperamos 2 minutos en esta pantalal y deberá de estar vacía tal y como me aparece a mi.
+
+![Captura de pantalla_2024-05-23_18-50-10](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/a6ba7d34-cb4b-43f1-a142-38ad64ce428b)
+
+Si te aparecen y desaparecen lineas es que esta haciendo un scanner, en ese caso hay que seguir hacer la siguiente opción, en el caso de que no salga nada nos saltaremos el sigueinete paso.
+
+### Detener el scanner automatico (sólo si en el paso anterior te aprecian lineas)
+
+Vamos a DVB Input -> Muxes 
+ 
+Vamos a la esquina inferior derecha y seleccionamos "All" para que aparezcan todas las lineas.
+ 
+![Captura de pantalla_2024-05-23_19-12-46](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/659a6b59-a6ae-4a22-8c3c-9b6d45ebbc14)
+
+Marcamos "Scan status" a "IDLE" y damos a "Save"
+
+### Opciones interesantes de Recording
+
+Asegurate que en "Storage path:" está puerto "/recordings/"
+
+![Captura de pantalla_2024-05-23_19-14-00](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/50e9e878-60e0-49a7-8e95-4d3759e4e333)
+
+Activa el Timeshift si crees que los vas a usar.
+
+He creado el directorio /home/user/tvheadend/data/timeshift en mi equipo
+
+![Captura de pantalla_2024-05-23_19-18-36](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/efd1f52e-e166-443e-90cf-944be3eca479)
+
+
+He modificado en "Storage path:" "/recordings/timeshift"
+
+
+
+
+ 
