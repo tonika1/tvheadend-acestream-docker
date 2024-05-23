@@ -62,8 +62,33 @@ donde \[puerto] es el puerto que usa cada contenedor, en este caso, podría ser 
 Para iniciar el contenedor tvheadend:
 
 ```bash
+docker run -d   --name=tvheadend   -e PUID=1000   -e PGID=1000   -e TZ=Europe/Madrid  -p 9981:9981   -p 9982:9982 -v /home/user/tvheadend/data:/config   -v /home/user/tvheadend/grabaciones:/recordings   --restart unless-stopped   lscr.io/linuxserver/tvheadend:latest
+```
+Donde:
+/home/user/tvheadend/data es el directorio donde se guardará la configuración
+/home/user/tvheadend/grabaciones es el directorio donde se guardarán las grabaciones y el timneshift 
+
+
+## Ejecutar el contenedores tvheadend con la guia de Canales_dobleM
+Si quieres instalar tvheadend con una guia xml de Canales_dobleM debes seguir los pasos de https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/tvh_linux.md y enlazarla con tu contenedor de la siguiente forma:
+
+```bash
 docker run -d   --name=tvheadend   -e PUID=1000   -e PGID=1000   -e TZ=Europe/Madrid  -p 9981:9981   -p 9982:9982 -v /usr/bin/tv_grab_EPG_dobleM:/usr/bin/tv_grab_EPG_dobleM  -v /home/user/tvheadend/data:/config   -v /home/user/tvheadend/grabaciones:/recordings   --restart unless-stopped   lscr.io/linuxserver/tvheadend:latest
 ```
+Donde:
+/home/user/tvheadend/data es el directorio donde se guardará la configuración
+/home/user/tvheadend/grabaciones es el directorio donde se guardarán las grabaciones y el timneshift 
+/usr/bin/tv_grab_EPG_dobleM es el script de la guia
+
+## Configurar tvheadend
+
+### Creamos un usuario administrador:
+
+![Captura de pantalla_2024-05-23_17-27-40](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/d1e1cc50-39ff-41aa-a43c-9f3be0ca6b91)
+
+En change parametres debes marcar todas las opciones
+
+
 
 ## Crear fichero m3u
 
