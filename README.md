@@ -261,7 +261,7 @@ Nos vamos a status, esperamos 2 minutos en esta pantalal y deberá de estar vac�
 
 ![Captura de pantalla_2024-05-23_18-50-10](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/a6ba7d34-cb4b-43f1-a142-38ad64ce428b)
 
-Si te aparecen y desaparecen lineas es que esta haciendo un scanner, en ese caso hay que seguir hacer la siguiente opción, en el caso de que no salga nada nos saltaremos el sigueinete paso.
+Si te aparecen y desaparecen lineas es que esta haciendo un scanner, en ese caso hay que seguir con la siguiente opción, en el caso de que no salga nada nos saltaremos el sigueinete paso.
 
 ### Detener el scanner automatico (sólo si en el paso anterior te aprecian lineas)
 
