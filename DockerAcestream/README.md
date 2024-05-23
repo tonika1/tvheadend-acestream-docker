@@ -1,7 +1,5 @@
 # Dockerized Acestream
 
-[Leer documentación en Español](README_es.md)
-
 This project deploys Acestream within a Docker container using Ubuntu 22.04 and Python 3.10 for compatibility.
 
 Acestream is a platform for live streaming via peer-to-peer networks. Dockerizing Acestream simplifies its setup and
