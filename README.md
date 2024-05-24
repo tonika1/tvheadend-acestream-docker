@@ -1,12 +1,15 @@
 # tvheadend-acestream-docker
 Conexión Docker TVHeadend y Docker acestream
 
-Tenemos que tener en cuenta que un usuario sólo puede ver en un enlace acestream en un momento dado, es decir, a un servidor acestream no le puedes enviar dos o mas enlaces para verlos ya que sólo se visualizará el último que envíes.
+## Consideraciones previas
 
-Para poder grabar diferentes emisiones o para tener dos clientes visualizando dos o mas emisiones diferentes (canal A y canal B) simultáneamente necesitamos varios servidores acestream, tantos como emisiones simultaneas queramos tener. Para ello, vamos a utilizar tantos dockers de acestream como "sintonizadores" queramos tener. En mi caso usaré 6 dockers acestream, que cada uno use los que crea convenientes.
+Aquí no vas a encontrar enlaces acestream, sólo como conectar contenedores acestream con tvheadend. Los enlaces acestream que aparecen en esta guía son enlaces inventados que no apuntan a ningún stream.
 
+Tenemos que tener en cuenta que un usuario sólo puede ver en un enlace acestream en un momento dado, es decir, a un servidor acestream no le puedes enviar dos o más enlaces para verlos ya que sólo se visualizará el último que envíes.
 
-## Ejecutar los Contenedores acestream
+Para poder grabar diferentes emisiones o para tener dos clientes visualizando dos o mas emisiones diferentes (canal A y canal B) simultáneamente necesitamos varios servidores acestream, tantos como emisiones simultaneas diferentes queramos tener. Para ello, vamos a utilizar tantos dockers de acestream como "sintonizadores" queramos tener. En mi caso usaré 6 dockers acestream, que cada uno use los que crea convenientes.
+
+## Configurar los Contenedores acestream
 
 Para iniciar el primer contenedor Acestream:
 
@@ -60,7 +63,7 @@ O a través de la interfaz web: `http://localhost:[puerto]/webui/api/service?met
 donde \[puerto] es el puerto que usa cada contenedor, en este caso, podría ser 6878, 6879, 6880, 6881, 6882 o 6883
 
 
-## Ejecutar el contenedor tvheadend
+## Configurar el contenedor tvheadend
 
 Para iniciar el contenedor tvheadend:
 
@@ -72,7 +75,7 @@ Directorio: /home/user/tvheadend/data es el directorio donde se guardará la con
 Directorio: /home/user/tvheadend/grabaciones es el directorio donde se guardarán las grabaciones y el timneshift (debe existir)
 
 
-## Ejecutar el contenedores tvheadend con la guia de Canales_dobleM
+## Configurar los contenedores tvheadend con la guia de Canales_dobleM
 
 Si quieres instalar tvheadend con una guía xml de Canales_dobleM debes seguir los pasos de [Canales_dobleM](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/tvh_linux.md)  y enlazarla con tu contenedor de la siguiente forma:
 
@@ -85,7 +88,7 @@ Directorio: /home/user/tvheadend/grabaciones es el directorio donde se guardará
 /usr/bin/tv_grab_EPG_dobleM es el script de la guía (debe existir y tener permisos de ejecución chmod +x /usr/bin/tv_grab_EPG_dobleM)
 
 
-## Creamos el o los ficheros m3u con nuestros enlaces acestream para tvheadend
+## Configurar del ficehro o los ficheros m3u con nuestros enlaces acestream para tvheadend
 
 La primera fila siempre contiene #EXTM3U para identificar este archivo como una lista m3u de reproducción y opcionalmente se le puede añadir la guía que se va usar mediante url-tvg:
 
@@ -146,7 +149,7 @@ Directorio: /home/user/servidorweb este directorio debe existir y en el copiaras
 
 Puedes probar que funciona abriendo un navegador y poniendo http://XXX.XXX.XX.XXX:8085/acestreamr1.m3u
 
-## Configurar tvheadend
+## Configurar la aplicación tvheadend
 
 ### Creamos un usuario administrador:
 
