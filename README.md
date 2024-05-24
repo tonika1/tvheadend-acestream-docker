@@ -88,7 +88,7 @@ Directorio: /home/user/tvheadend/grabaciones es el directorio donde se guardará
 /usr/bin/tv_grab_EPG_dobleM es el script de la guía (debe existir y tener permisos de ejecución chmod +x /usr/bin/tv_grab_EPG_dobleM)
 
 
-## Configurar del ficehro o los ficheros m3u con nuestros enlaces acestream para tvheadend
+## Configurar del fichero o los ficheros m3u con nuestros enlaces acestream para tvheadend
 
 La primera fila siempre contiene #EXTM3U para identificar este archivo como una lista m3u de reproducción y opcionalmente se le puede añadir la guía que se va usar mediante url-tvg:
 
