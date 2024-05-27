@@ -2,6 +2,8 @@
 
 [Read documentation in English](README.md)
 
+Basado en esta [guía](https://github.com/marquezpsergio/acestream-docker-home/blob/main/README_es.md)
+
 Este proyecto despliega Acestream dentro de un contenedor Docker usando Ubuntu 22.04 y Python 3.10 para garantizar la
 compatibilidad.
 
