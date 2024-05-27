@@ -5,6 +5,8 @@ Conexión Docker TVHeadend y Docker acestream
 
 Aquí no vas a encontrar enlaces acestream, sólo como conectar contenedores acestream con tvheadend. Los enlaces acestream que aparecen en esta guía son enlaces inventados que no apuntan a ningún stream.
 
+Todo el software se ha probado bajo el sistema operativo "Ubuntu 20.04.6 LTS" pero al estar todo dockerizado entiendo que no habrá ningún problema en utilizar otro sistema operativo donde se pueda instalar docker.
+
 Tenemos que tener en cuenta que un usuario sólo puede ver en un enlace acestream en un momento dado, es decir, a un servidor acestream no le puedes enviar dos o más enlaces para verlos ya que sólo se visualizará el último que envíes.
 
 Para poder grabar diferentes emisiones o para tener dos clientes visualizando dos o mas emisiones diferentes (canal A y canal B) simultáneamente necesitamos varios servidores acestream, tantos como emisiones simultaneas diferentes queramos tener. Para ello, vamos a utilizar tantos dockers de acestream como "sintonizadores" queramos tener. En mi caso usaré 6 dockers acestream, que cada uno use los que crea convenientes.
