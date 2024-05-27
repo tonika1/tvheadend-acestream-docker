@@ -305,5 +305,22 @@ He modificado la opción "Storage path:" a "/recordings/timeshift"
 
 
 
+## Conexión de kodi con tvheadend
+
+Debemos tener instalado el addon de TVHeadend que es un addon que puedes instalar desde los repositorios de kodi, está dentro de la sección Clientes PVR.
+
+Una vez instalado, vamos a ver las capturas de pantalla de su configuración:
+
+La dirección IP es 127.0.0.1 si está en el mismo PC el docker de TVHEadend y Kodi, si están en diferentes sitios debes poner la ip del PC donde esté el docker de TVHeadend.
+Debes poner el usuario y contraseña que hemos creado al configurar el TVHeadend.
+Creo que el resto de opciones son las que vienen por defecto.
+
+![Captura de pantalla_2024-05-27_20-11-22](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/8bd73c62-635f-4147-8d33-ad1f4e7151f7)
+
+![Captura de pantalla_2024-05-27_20-11-36](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/cf339b68-5033-47d8-a330-dc48f6dfe355)
+
+![Captura de pantalla_2024-05-27_20-12-11](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/fc445ac8-9f64-4ddf-9f06-98e01b5bc734)
+
+![Captura de pantalla_2024-05-27_20-12-29](https://github.com/tonika1/tvheadend-acestream-docker/assets/36047512/87ae94a6-5c5b-4fda-8d82-d1323817e3f4)
 
  
