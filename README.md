@@ -128,6 +128,10 @@ El primer fichero enlacesace1.m3u contendrá en sus pipes la url http://XXX.XXX.
 He probado varias opciones para que me coja los enlaces el servidor tvheadend, por si alguien cree que es mejor otra opción (la primera me parece que es mejor)
 
 ```bash
+pipe:///usr/bin/ffmpeg -loglevel fatal -reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 4294 -fflags -nobuffer -err_detect ignore_err -i http://XXX.XXX.XX.XXX:6879/ace/getstream?id=e6f06d697f66a8fa606c4d61236c24b0d604dabc -c copy -map 0 -f mpegts -tune zerolatency pipe:1 
+```
+
+```bash
 pipe:///usr/bin/curl -s -L -N --output - http://XXX.XXX.XX.XXX:6879/ace/getstream?id=e6f06d697f66a8fa606c4d61236c24b0d604dabc
 ```
 
