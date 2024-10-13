@@ -122,7 +122,7 @@ pipe:///usr/bin/curl -s -L -N --output - http://192.168.10.100:6878/ace/getstrea
 ```
 
 Creamos tantos ficheros  m3u como contenedores acestream tengamos, en nuestro caso 6 ficheros enlacesace1.m3u, enlacesace2.m3u, enlacesace3.m3u, enlacesace4.m3u, enlacesace5.m3u y enlacesace6.m3u.
-El primer fichero enlacesace1.m3u contendrá en sus pipes la url http://XXX.XXX.XX.XXX:6878/ace/getstre... el segundo fichero contendrá enlacesace2.m3u en sus pipes la url http://XXX.XXX.XX.XXX:6878/ace/getstre... y lo mismo para el resto de ficheros
+El primer fichero enlacesace1.m3u contendrá en sus pipes la url http://XXX.XXX.XX.XXX:6878/ace/getstre... el segundo fichero contendrá enlacesace2.m3u en sus pipes la url http://XXX.XXX.XX.XXX:6879/ace/getstre... y lo mismo para el resto de ficheros
 
 
 He probado varias opciones para que me coja los enlaces el servidor tvheadend, por si alguien cree que es mejor otra opción (la primera me parece que es mejor)
