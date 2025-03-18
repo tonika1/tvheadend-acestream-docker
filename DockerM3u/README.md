@@ -20,3 +20,5 @@ Después, para construir tu imagen utiliza:
 ```bash
 docker build --no-cache -t docker-m3u .
 ```
+
+## Párametros
